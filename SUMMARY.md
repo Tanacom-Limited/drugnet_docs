@@ -4,6 +4,7 @@
 * [🧑‍🤝‍🧑 Create User](create-user.md)
 * [🧑‍💻 Login User](login-user.md)
 * [📦 Send Order Request](send-order-request.md)
+* [⛓️ Get Insurance Information](get-insurance-information.md)
 
 ## Reference
 

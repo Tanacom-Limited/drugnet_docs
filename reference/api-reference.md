@@ -27,3 +27,7 @@ Everything related to users:
 
 
 {% endhint %}
+
+{% content-ref url="../get-insurance-information.md" %}
+[get-insurance-information.md](../get-insurance-information.md)
+{% endcontent-ref %}
