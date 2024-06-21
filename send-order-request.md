@@ -18,14 +18,7 @@ description: >-
 
 #### Request Body
 
-| Name                                         | Type       | Description                                                                                                                         |
-| -------------------------------------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| client\_id<mark style="color:red;">\*</mark> | integer    | The ID of the client submitting the request                                                                                         |
-| prescription                                 | String     | The prescription or reason for the request.                                                                                         |
-| order\_items                                 | JSON array | An array of objects specifying the items in the order. Each object should have `name` (string) and `quantity` (integer) properties. |
-| insurance\_card                              | String     | The insurance card id                                                                                                               |
-|                                              |            |                                                                                                                                     |
-| file                                         | file       | The file to be uploaded, representing additional information or images related to the request.                                      |
+<table><thead><tr><th width="223">Name</th><th width="192">Type</th><th>Description</th></tr></thead><tbody><tr><td>client_id<mark style="color:red;">*</mark></td><td>integer</td><td>The ID of the client submitting the request</td></tr><tr><td>prescription</td><td>String</td><td>The prescription or reason for the request.</td></tr><tr><td>order_items</td><td>JSON array</td><td>An array of objects specifying the items in the order. Each object should have <code>name</code> (string) and <code>quantity</code> (integer) properties.</td></tr><tr><td>insurance_card</td><td>String</td><td>The insurance card id</td></tr><tr><td>recipient</td><td>String</td><td>Recipient phone number</td></tr><tr><td>location</td><td>String</td><td>Location to deliver drugs</td></tr><tr><td>file</td><td>file </td><td>The file to be uploaded, representing additional information or images related to the request.</td></tr></tbody></table>
 
 {% tabs %}
 {% tab title="200: OK Success" %}
