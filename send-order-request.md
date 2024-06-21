@@ -10,43 +10,45 @@ description: >-
 
 
 
-**Request Body Parameters**
+## Send Request Web
 
-1. `client_id` (integer, required): The ID of the client making the request. Obtain from after user login.
-2. `prescription` (string, optional): The description of the prescription or medical condition.
-3. `order_items` (string, optional): A JSON array containing the details of the medications being requested. Each item should have a `name` (string) and `quantity` (integer).
+<mark style="color:green;">`POST`</mark> `/send_request_web`
 
-
-
-{% swagger method="post" path="" baseUrl="/send_request_web" summary="Send Request Web" %}
-{% swagger-description %}
 &#x20;Send a medication request from a client to the DrugNet portal..
-{% endswagger-description %}
 
-{% swagger-parameter in="body" name="client_id" required="true" type="integer" %}
-The ID of the client submitting the request
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-parameter in="body" name="prescription" required="false" %}
-The prescription or reason for the request.
-{% endswagger-parameter %}
+| Name                                         | Type       | Description                                                                                                                         |
+| -------------------------------------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| client\_id<mark style="color:red;">\*</mark> | integer    | The ID of the client submitting the request                                                                                         |
+| prescription                                 | String     | The prescription or reason for the request.                                                                                         |
+| order\_items                                 | JSON array | An array of objects specifying the items in the order. Each object should have `name` (string) and `quantity` (integer) properties. |
+| insurance\_card                              | String     | The insurance card id                                                                                                               |
+|                                              |            |                                                                                                                                     |
+| file                                         | file       | The file to be uploaded, representing additional information or images related to the request.                                      |
 
-{% swagger-parameter in="body" name="order_items" type="JSON array" %}
-An array of objects specifying the items in the order. Each object should have `name` (string) and `quantity` (integer) properties.
-{% endswagger-parameter %}
+{% tabs %}
+{% tab title="200: OK Success" %}
+```json
+{
+    "code": 200,
+    "success": true,
+    "message": "Order sent successfully"
+}
 
-{% swagger-parameter in="body" type="file " name="file" %}
-The file to be uploaded, representing additional information or images related to the request.
-{% endswagger-parameter %}
+```
+{% endtab %}
 
-{% swagger-response status="200: OK" description="Success" %}
-
-{% endswagger-response %}
-
-{% swagger-response status="204: No Content" description="Request Empty" %}
-
-{% endswagger-response %}
-{% endswagger %}
+{% tab title="204: No Content Request Empty" %}
+```json
+{
+    "code": 204,
+    "success": false,
+    "message": "Error message"
+}
+```
+{% endtab %}
+{% endtabs %}
 
 
 
@@ -55,7 +57,7 @@ Take a look at how you might call this method using our official libraries, or v
 {% tabs %}
 {% tab title="Curl" %}
 ```
-curl --location 'https://portal.drugnet.com.gh/api/send_request_web' \
+curl --location '/send_request_web' \
 --header 'x-api-key: YOUR API KEY' \
 --form 'client_id="YOUR CLIENT ID"' \
 --form 'prescription="YOUR PRESCRIPTION"' \
@@ -71,7 +73,7 @@ curl --location 'https://portal.drugnet.com.gh/api/send_request_web' \
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => 'https://portal.drugnet.com.gh/api/send_request_web',
+  CURLOPT_URL => '/send_request_web',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
@@ -98,7 +100,7 @@ echo $response;
 ```
 import requests
 
-url = "https://portal.drugnet.com.gh/api/send_request_web"
+url = "/send_request_web"
 
 payload = {'client_id': 'YOUR CLIENT ID',
 'prescription': 'YOUR PRESCRIPTION',
