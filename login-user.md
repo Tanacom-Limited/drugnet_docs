@@ -20,27 +20,28 @@ username=your_username&password=your_password
 
 ```
 
-{% swagger method="post" path="" baseUrl="/login_web_user" summary="Login Web User" %}
-{% swagger-description %}
+## Login Web User
+
+<mark style="color:green;">`POST`</mark> `/login_web_user`
+
 Authenticate a web user by providing their username and password.
-{% endswagger-description %}
 
-{% swagger-parameter in="body" name="username" required="true" %}
-Provided the username
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-parameter in="body" name="password" required="true" %}
-Provided user password
-{% endswagger-parameter %}
+| Name                                       | Type   | Description            |
+| ------------------------------------------ | ------ | ---------------------- |
+| username<mark style="color:red;">\*</mark> | String | Provided  username     |
+| password<mark style="color:red;">\*</mark> | String | Provided user password |
 
-{% swagger-response status="200: OK" description="Success" %}
+{% tabs %}
+{% tab title="200: OK Success" %}
 
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="204: No Content" description="Request Empty" %}
+{% tab title="204: No Content Request Empty" %}
 
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 
 
@@ -49,7 +50,7 @@ Take a look at how you might call this method using our official libraries, or v
 {% tabs %}
 {% tab title="Curl" %}
 ```
-curl --location --request POST 'https://portal.drugnet.com.gh/api/login_web_user' \
+curl --location --request POST '/login_web_user' \
 --header 'x-api-key: YOUR API KEY' \
 
 ```
@@ -62,7 +63,7 @@ curl --location --request POST 'https://portal.drugnet.com.gh/api/login_web_user
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => 'https://portal.drugnet.com.gh/api/login_web_user',
+  CURLOPT_URL => '/login_web_user',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
@@ -87,7 +88,7 @@ echo $response;
 ```
 import requests
 
-url = "https://portal.drugnet.com.gh/api/login_web_user"
+url = "/login_web_user"
 
 payload = {}
 files={}

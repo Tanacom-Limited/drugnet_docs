@@ -12,51 +12,49 @@ description: Create a new user in the DrugNet system.
 
 To make your first request, send an authenticated request to the drugnet endpoint. This will create a user, which is nice.
 
-{% swagger baseUrl="/create_user" method="post" path="" summary="Create user." %}
-{% swagger-description %}
+## Create user.
+
+<mark style="color:green;">`POST`</mark> `/create_user`
+
 This endpoint allows you to create a new user in the DrugNet System.
-{% endswagger-description %}
 
-{% swagger-parameter in="body" name="name" required="true" type="string" %}
-The name of the user
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-parameter in="body" name="email" required="true" type="string" %}
-The email of the user
-{% endswagger-parameter %}
+| Name                                    | Type   | Description           |
+| --------------------------------------- | ------ | --------------------- |
+| name<mark style="color:red;">\*</mark>  | string | The name of the user  |
+| email<mark style="color:red;">\*</mark> | string | The email of the user |
+| phone<mark style="color:red;">\*</mark> | string | The phone of the user |
 
-{% swagger-parameter in="body" name="phone" required="true" type="string" %}
-The phone of the user
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="User created sucessfully" %}
+{% tabs %}
+{% tab title="200 User created sucessfully" %}
 ```javascript
 {
   "status": "success",
   "message": "User created successfully",
   "user": {
     "id": 123,
-    "name": "Anthony Tandoh",
-    "phone": "0504305596",
-    "email": "anthonytandoh90@yahoo.com"
+    "name": "John Doe",
+    "phone": "+233 xx xxx xxxx",
+    "email": "john.doe@doe.com"
   }
 }
 
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="204: No Content" description="Empty field" %}
-
-{% endswagger-response %}
-
-{% swagger-response status="400: Bad Request" description="Invalid Request" %}
+{% tab title="400: Bad Request Invalid Request" %}
 { "status": "error", "message": "Invalid API key" }
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="500: Internal Server Error" description="Internal Server Error" %}
+{% tab title="204: No Content Empty field" %}
 
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+
+{% tab title="500: Internal Server Error Internal Server Error" %}
+
+{% endtab %}
+{% endtabs %}
 
 {% hint style="info" %}
 **Good to know:** You can use the API Method block to fully document an API method. You can also sync your API blocks with an OpenAPI file or URL to auto-populate them.
@@ -67,7 +65,7 @@ Take a look at how you might call this method using our official libraries, or v
 {% tabs %}
 {% tab title="curl" %}
 ```
-curl --location 'https://portal.drugnet.com.gh/api/create_user' \
+curl --location '/create_user' \
 --header 'x-api-key: YOUR API KEY' \
 --form 'name="YOUR NAME"' \
 --form 'phone="YOUR PHONE"' \
@@ -80,7 +78,7 @@ curl --location 'https://portal.drugnet.com.gh/api/create_user' \
 var request = require('request');
 var options = {
   'method': 'POST',
-  'url': 'https://portal.drugnet.com.gh/api/create_user',
+  'url': '/create_user',
   'headers': {
     'x-api-key': 'YOUR API KEY'
   },
@@ -104,7 +102,7 @@ request(options, function (error, response) {
 <?php
 $client = new http\Client;
 $request = new http\Client\Request;
-$request->setRequestUrl('https://portal.drugnet.com.gh/api/create_user');
+$request->setRequestUrl('/create_user');
 $request->setRequestMethod('POST');
 $body = new http\Message\Body;
 $body->addForm(array(
