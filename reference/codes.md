@@ -15,6 +15,8 @@ description: A list of possible codes and what they mean to you
 
 400: Invalid Request.
 
+402: Invalid Email.
+
 900: Invalid API key.
 
 901: Rate limit exceeded.

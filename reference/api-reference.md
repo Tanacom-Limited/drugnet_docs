@@ -16,6 +16,12 @@ Everything related to users:
 [login-user.md](../login-user.md)
 {% endcontent-ref %}
 
+{% content-ref url="../reset-password.md" %}
+[reset-password.md](../reset-password.md)
+{% endcontent-ref %}
+
+##
+
 ## Orders
 
 {% content-ref url="../send-order-request.md" %}
