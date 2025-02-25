@@ -25,6 +25,7 @@ This endpoint allows you to create a new user in the DrugNet System.
 | name<mark style="color:red;">\*</mark>  | string | The name of the user  |
 | email<mark style="color:red;">\*</mark> | string | The email of the user |
 | phone<mark style="color:red;">\*</mark> | string | The phone of the user |
+| country                                 | string | Source country        |
 
 {% tabs %}
 {% tab title="200 User created sucessfully" %}
